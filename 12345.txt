@@ -1,0 +1,26 @@
+import numpy as np
+import cv2
+
+cap = cv2.VideoCapture(0)
+#VideoCapture(0):cam1
+#VideoCapture(1):cam2 
+ 
+while(True):
+    ret, frame = cap.read()
+#ret:Boolean
+#if no frame ,you will get None
+
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+#gray=BGR to GRAY
+ 
+    cv2.imshow('frame',gray)
+#("title",file name)
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+#runs once per frame
+#exit:q        
+
+cap.release()
+cv2.destroyAllWindows()
+#close cam
